@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryBook
 {
-    class Item
+    class Entity
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -14,7 +14,7 @@ namespace LibraryBook
         public string Description { get; set; }
         public int Сirculation { get; set; }
 
-        public Item()
+        public Entity()
         {
         Id = 0;
         Title = "N/A";
@@ -23,7 +23,7 @@ namespace LibraryBook
         Сirculation = 0;
         }
 
-        public Item(int Id, string title, string desc, string Publisher, int Сirculation)
+        public Entity(int Id, string title, string desc, string Publisher, int Сirculation)
         {
         this.Id = Id;
         this.Title = title;

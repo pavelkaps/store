@@ -62,12 +62,13 @@
     </ApplicationDefinition>
     <Compile Include="BookContext.cs" />
     <Compile Include="BookGenre.cs" />
+    <Compile Include="BookGenreContext.cs" />
     <Compile Include="BookRepository.cs" />
-    <Compile Include="Genre.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="IEntityRepository.cs" />
     <Compile Include="MagazineContext.cs" />
     <Compile Include="MagazineRepository.cs" />
     <Compile Include="MagazineType.cs" />
+    <Compile Include="MagazineTypeContext.cs" />
     <Compile Include="Type.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,7 +79,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Book.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Magazine.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -10,15 +10,17 @@ namespace LibraryBook
     {
         public BookGenre()
         {
-            AddOneType("Вестерн");
-            AddOneType("Драма");
-            AddOneType("Исторический");
-            AddOneType("Роман");
-            AddOneType("Поэма");
-            AddOneType("Приключения");
-            AddOneType("Триллер");
-            AddOneType("Ужасы");
-            AddOneType("Фэнтези");
+          
         }
     }
 }
+
+//AddOneType("Вестерн");
+//AddOneType("Драма");
+//AddOneType("Исторический");
+//AddOneType("Роман");
+//AddOneType("Поэма");
+//AddOneType("Приключения");
+//AddOneType("Триллер");
+//AddOneType("Ужасы");
+//AddOneType("Фэнтези");

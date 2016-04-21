@@ -9,16 +9,18 @@ namespace LibraryBook
     class MagazineType:Type
     {
         public MagazineType(){
-            AddOneType("Экономика");
-            AddOneType("Наука и техника");
-            AddOneType("Недвижимость");
-            AddOneType("Авто");
-            AddOneType("Туризм");
-            AddOneType("Спорт");
-            AddOneType("Музыка");
-            AddOneType("Кино");
-            AddOneType("Мода");
+           
         }
          
     }
 }
+
+ //AddOneType("Экономика");
+ //           AddOneType("Наука и техника");
+ //           AddOneType("Недвижимость");
+ //           AddOneType("Авто");
+ //           AddOneType("Туризм");
+ //           AddOneType("Спорт");
+ //           AddOneType("Музыка");
+ //           AddOneType("Кино");
+ //           AddOneType("Мода");

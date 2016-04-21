@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 namespace LibraryBook
 {
-    class BookRepository : IRepository
+    class BookRepository : IEntityRepository<Book>
     {
         public override void Insert(object a)
         {
@@ -23,7 +23,7 @@ namespace LibraryBook
             dbContext.SaveChanges();
         }
 
-        public List<Book> Load()
+        public override List<Book> Load()
         {
             var dbContext = new BookContext();
             List<Book> books = new List<Book>();
