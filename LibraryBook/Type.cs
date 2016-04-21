@@ -8,9 +8,6 @@ namespace LibraryBook
 {
     abstract class Type
     {
-        private List<String> TypeList = new List<string>();
-
-        public void AddOneType(string _type) { TypeList.Add(_type); }
-        
-    }
+        public abstract string GetTYPE();
+      }
 }

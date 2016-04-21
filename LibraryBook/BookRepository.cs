@@ -8,14 +8,14 @@ namespace LibraryBook
 {
     class BookRepository : IEntityRepository<Book>
     {
-        public override void Insert(object a)
+        public void Insert(object a)
         {
             var dbContext = new BookContext();
             dbContext.Books.Add((Book)a);
             dbContext.SaveChanges();
         }
 
-        public override void Delete(int id)
+        public void Delete(int id)
         {
             var dbContext = new BookContext();
             Book book = dbContext.Books.Find(id);
@@ -23,7 +23,7 @@ namespace LibraryBook
             dbContext.SaveChanges();
         }
 
-        public override List<Book> Load()
+        public List<Book> Load()
         {
             var dbContext = new BookContext();
             List<Book> books = new List<Book>();
@@ -33,7 +33,7 @@ namespace LibraryBook
             return books;
         }
 
-        public override object Find(int id)
+        public object Find(int id)
         {
             var dbContext = new BookContext();
             Book book = dbContext.Books.Find(id);

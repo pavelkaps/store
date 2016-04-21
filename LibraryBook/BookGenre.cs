@@ -8,9 +8,15 @@ namespace LibraryBook
 {
     class BookGenre:Type
     {
-        public BookGenre()
+        string genre;
+        public BookGenre(string _genre)
         {
-          
+            genre = _genre;
+        }
+
+        public override string GetTYPE()
+        {
+            return genre;
         }
     }
 }

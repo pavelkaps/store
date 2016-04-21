@@ -8,8 +8,14 @@ namespace LibraryBook
 {
     class MagazineType:Type
     {
-        public MagazineType(){
-           
+        string type;
+        public MagazineType(string _type){
+            type = _type;
+        }
+
+        public override string GetTYPE()
+        {
+            return type;
         }
          
     }

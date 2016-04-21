@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 namespace LibraryBook
 {
-    class MagazineRepository:IEntityRepository<Book>
+    class MagazineRepository:IEntityRepository<Magazine>
     {
-        public override void Insert(object a)
+        public void Insert(object a)
         {
             var dbContext = new MagazineContext();
             dbContext.Journals.Add((Magazine)a);
             dbContext.SaveChanges();
         }
 
-        public override void Delete(int id)
+        public void Delete(int id)
         {
             var dbContext = new MagazineContext();
             Magazine m = dbContext.Journals.Find(id);
@@ -23,7 +23,7 @@ namespace LibraryBook
             dbContext.SaveChanges();
         }
 
-        public override List<Magazine> Load()
+        public List<Magazine> Load()
         {
             var dbContext = new MagazineContext();
             List<Magazine> m = new List<Magazine>();
@@ -33,7 +33,7 @@ namespace LibraryBook
             return m;
         }
 
-        public override object Find(int id)
+        public object Find(int id)
         {
             var dbContext = new MagazineContext();
             Magazine m = dbContext.Journals.Find(id);
