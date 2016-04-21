@@ -26,15 +26,15 @@ namespace LibraryBook
         BookRepository DBBook;
         public MainWindow()
         {
-            //DBBook = new BookRepository();
+            DBBook = new BookRepository();
             //InitializeComponent();
             //DataView1.ItemsSource = DBBook.Load();
          }
 
         private void Add(object sender, RoutedEventArgs e)
         {
-             //Book user1 = new Book();
-             //DBBook.Insert(user1);
+            Book user1 = new Book();
+            DBBook.Insert(user1);
 
                 }
 

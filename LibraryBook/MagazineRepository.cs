@@ -11,15 +11,15 @@ namespace LibraryBook
         public void Insert(object a)
         {
             var dbContext = new MagazineContext();
-            dbContext.Journals.Add((Magazine)a);
+            dbContext.dbJournals.Add((Magazine)a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var dbContext = new MagazineContext();
-            Magazine m = dbContext.Journals.Find(id);
-            dbContext.Journals.Remove(m);
+            Magazine m = dbContext.dbJournals.Find(id);
+            dbContext.dbJournals.Remove(m);
             dbContext.SaveChanges();
         }
 
@@ -27,16 +27,16 @@ namespace LibraryBook
         {
             var dbContext = new MagazineContext();
             List<Magazine> m = new List<Magazine>();
-            dbContext.Journals.Load();
+            dbContext.dbJournals.Load();
 
-            m = dbContext.Journals.Local.ToList();
+            m = dbContext.dbJournals.Local.ToList();
             return m;
         }
 
         public object Find(int id)
         {
             var dbContext = new MagazineContext();
-            Magazine m = dbContext.Journals.Find(id);
+            Magazine m = dbContext.dbJournals.Find(id);
             return m;
         }
     }

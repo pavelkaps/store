@@ -13,6 +13,6 @@ namespace LibraryBook
             public MagazineTypeContext() : base("DbConnection")
             { }
 
-            public DbSet<MagazineType> DBMagazineType { get; set; }
+            public DbSet<MagazineType> dbMagazineType { get; set; }
      }
 }

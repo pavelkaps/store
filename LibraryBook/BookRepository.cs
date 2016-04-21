@@ -11,15 +11,15 @@ namespace LibraryBook
         public void Insert(object a)
         {
             var dbContext = new BookContext();
-            dbContext.Books.Add((Book)a);
+            dbContext.dbBooks.Add((Book)a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var dbContext = new BookContext();
-            Book book = dbContext.Books.Find(id);
-            dbContext.Books.Remove(book);
+            Book book = dbContext.dbBooks.Find(id);
+            dbContext.dbBooks.Remove(book);
             dbContext.SaveChanges();
         }
 
@@ -27,16 +27,16 @@ namespace LibraryBook
         {
             var dbContext = new BookContext();
             List<Book> books = new List<Book>();
-            dbContext.Books.Load();
+            dbContext.dbBooks.Load();
 
-            books = dbContext.Books.Local.ToList();
+            books = dbContext.dbBooks.Local.ToList();
             return books;
         }
 
         public object Find(int id)
         {
             var dbContext = new BookContext();
-            Book book = dbContext.Books.Find(id);
+            Book book = dbContext.dbBooks.Find(id);
             return book;
         }
     }

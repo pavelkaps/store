@@ -8,7 +8,13 @@ namespace LibraryBook
 {
     class BookGenre:Type
     {
+        
         string genre;
+
+        public BookGenre()
+        {
+            genre = "N/A";
+        }
         public BookGenre(string _genre)
         {
             genre = _genre;

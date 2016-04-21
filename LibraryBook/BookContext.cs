@@ -12,7 +12,7 @@ namespace LibraryBook
         public BookContext():base("DbConnection")
         { }
           
-        public DbSet<Book> Books { get; set; }
+        public DbSet<Book> dbBooks { get; set; }
 
     }
 }

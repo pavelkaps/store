@@ -12,7 +12,7 @@ namespace LibraryBook
        public BookGenreContext(): base("DbConnection")
             { }
 
-            public DbSet<BookGenre> DBBookgGenre { get; set; }
+            public DbSet<BookGenre> dbBookgGenre { get; set; }
 
         }
     

@@ -9,6 +9,10 @@ namespace LibraryBook
     class MagazineType:Type
     {
         string type;
+        public MagazineType()
+        {
+            type = "N/A";
+        }
         public MagazineType(string _type){
             type = _type;
         }
