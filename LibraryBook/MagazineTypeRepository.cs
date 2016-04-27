@@ -3,44 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 using System.ComponentModel;
+using System.Data.Entity;
+
 namespace LibraryBook
 {
-    class MagazineRepository:IEntityRepository<Magazine>
+    class MagazineTypeRepository:IEntityRepository<MagazineType>
     {
         public void Insert(object a)
         {
             var dbContext = new MagazineContext();
-            dbContext.dbJournals.Add((Magazine)a);
+            dbContext.dbType.Add((MagazineType)a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var dbContext = new MagazineContext();
-            Magazine m = dbContext.dbJournals.Find(id);
-            dbContext.dbJournals.Remove(m);
+            MagazineType type = dbContext.dbType.Find(id);
+            dbContext.dbType.Remove(type);
             dbContext.SaveChanges();
         }
 
-        public BindingList<Magazine> Load()
+        public BindingList<MagazineType> Load()
         {
             var dbContext = new MagazineContext();
-            BindingList<Magazine> m = new BindingList<Magazine>();
-            dbContext.dbJournals.Load();
+            BindingList<MagazineType> genre = new BindingList<MagazineType>();
+            dbContext.dbType.Load();
 
-            m = dbContext.dbJournals.Local.ToBindingList();
-            return m;
+            genre = dbContext.dbType.Local.ToBindingList();
+            return genre;
         }
-        
-
 
         public object Find(int id)
         {
             var dbContext = new MagazineContext();
-            Magazine m = dbContext.dbJournals.Find(id);
-            return m;
+            MagazineType type = dbContext.dbType.Find(id);
+            return type;
         }
+
     }
+
 }

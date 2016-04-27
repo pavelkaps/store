@@ -13,6 +13,6 @@ namespace LibraryBook
         { }
           
         public DbSet<Magazine> dbJournals { get; set; }
-
+        public DbSet<MagazineType> dbType { get; set; }
     }
 }

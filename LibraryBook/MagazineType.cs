@@ -8,14 +8,21 @@ namespace LibraryBook
 {
     class MagazineType:Type
     {
-        string type;
+        public string type { get; set; }
+        
+        public ICollection<Magazine> journals { get; set; }
         public MagazineType()
         {
-            type = "N/A";
+            journals = new List<Magazine>();
         }
-        public MagazineType(string _type){
-            type = _type;
-        }
+
+        //public MagazineType()
+        //{
+        //    type = "N/A";
+        //}
+        //public MagazineType(string _type){
+        //    type = _type;
+        //}
 
         public override string GetTYPE()
         {

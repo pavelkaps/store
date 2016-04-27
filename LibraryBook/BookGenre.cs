@@ -8,17 +8,22 @@ namespace LibraryBook
 {
     class BookGenre:Type
     {
-        
-        string genre;
 
-        public BookGenre()
-        {
-            genre = "N/A";
-        }
-        public BookGenre(string _genre)
-        {
-            genre = _genre;
-        }
+         public string genre { get; set; }
+
+         public ICollection<Book> books { get; set; }
+         public BookGenre()
+         {
+         books = new List<Book>();
+         }
+        //public BookGenre()
+        //{
+        //    genre = "N/A";
+        //}
+        //public BookGenre(string _genre)
+        //{
+        //    genre = _genre;
+        //}
 
         public override string GetTYPE()
         {

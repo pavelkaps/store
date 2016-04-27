@@ -13,6 +13,6 @@ namespace LibraryBook
         { }
           
         public DbSet<Book> dbBooks { get; set; }
-
+        public DbSet<BookGenre> dbGenre { get; set; }
     }
 }

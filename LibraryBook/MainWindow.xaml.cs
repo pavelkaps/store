@@ -24,25 +24,45 @@ namespace LibraryBook
     public partial class MainWindow : Window
     {
         BookRepository DBBook;
+        BookGenreRepository DBGenre;
+        MagazineTypeRepository DBType;
+        MagazineRepository DBMagazine;
+
         public MainWindow()
         {
             DBBook = new BookRepository();
-            //InitializeComponent();
-            //DataView1.ItemsSource = DBBook.Load();
+            DBGenre = new BookGenreRepository();
+            DBType = new MagazineTypeRepository();
+            DBMagazine = new MagazineRepository();
+
+            InitializeComponent();
+            DBBook.Load();
+            BookGrid.ItemsSource = DBBook.Load(); 
          }
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            Book user1 = new Book();
-            DBBook.Insert(user1);
+            
+            //Book pl1 = new Book();
+            //pl1.BookGenre = t1;
 
-                }
+            //DBBook.Insert(pl1);
+            
+
+        }
 
         private void Window_Load(object sender, RoutedEventArgs e)
         {
            
         }
-            
+
+        private void grid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Book path = BookGrid.SelectedItem as Book;
+            MessageBox.Show(" ID: " + path.Id + "\n Исполнитель: " + path.Author +  "\n Год: " + path.Year);
+        }
+
+
         }
 
         

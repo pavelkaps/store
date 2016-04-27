@@ -62,13 +62,13 @@
     </ApplicationDefinition>
     <Compile Include="BookContext.cs" />
     <Compile Include="BookGenre.cs" />
-    <Compile Include="BookGenreContext.cs" />
+    <Compile Include="BookGenreRepository.cs" />
     <Compile Include="BookRepository.cs" />
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="MagazineContext.cs" />
     <Compile Include="MagazineRepository.cs" />
     <Compile Include="MagazineType.cs" />
-    <Compile Include="MagazineTypeContext.cs" />
+    <Compile Include="MagazineTypeRepository.cs" />
     <Compile Include="Type.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

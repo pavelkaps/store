@@ -3,42 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 using System.ComponentModel;
+using System.Data.Entity;
 namespace LibraryBook
 {
-    class BookRepository : IEntityRepository<Book>
+    class BookGenreRepository:IEntityRepository<BookGenre>
     {
         public void Insert(object a)
         {
             var dbContext = new BookContext();
-            dbContext.dbBooks.Add((Book)a);
+            dbContext.dbGenre.Add((BookGenre)a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var dbContext = new BookContext();
-            Book book = dbContext.dbBooks.Find(id);
-            dbContext.dbBooks.Remove(book);
+            BookGenre book = dbContext.dbGenre.Find(id);
+            dbContext.dbGenre.Remove(book);
             dbContext.SaveChanges();
         }
 
-        public BindingList<Book> Load()
+        public BindingList<BookGenre> Load()
         {
             var dbContext = new BookContext();
-            BindingList<Book> books = new BindingList<Book>();
-            dbContext.dbBooks.Load();
+            BindingList<BookGenre> genre = new BindingList<BookGenre>();
+            dbContext.dbGenre.Load();
 
-            books = dbContext.dbBooks.Local.ToBindingList(); 
-            return books;
+            genre = dbContext.dbGenre.Local.ToBindingList();
+            return genre;
         }
 
         public object Find(int id)
         {
             var dbContext = new BookContext();
-            Book book = dbContext.dbBooks.Find(id);
-            return book;
+            BookGenre genre = dbContext.dbGenre.Find(id);
+            return genre;
         }
     }
 }

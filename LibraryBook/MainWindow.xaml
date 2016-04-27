@@ -4,15 +4,26 @@
         
       xmlns:local="clr-namespace:LibraryBook" x:Class="LibraryBook.MainWindow"
         
-      Title="Library" Height="440.396" Width="958.232">
-    <Grid Margin="0,-26,-211,21">
+      Title="Library" Height="440.396" Width="1006.232">
+    <Grid Margin="10,10,-110,17">
         <Grid.ColumnDefinitions>
+            
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="791,33,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="Add"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="791,76,0,0" VerticalAlignment="Top" Width="143" Height="38"/>
-        <Button Content="Детальнее" HorizontalAlignment="Left" Margin="791,119,0,0" VerticalAlignment="Top" Width="143" Height="38                 " Background="#FF6C80DA" Foreground="#FFF7F3F3" FontSize="18" FontFamily="Agency FB"/>
-        <DataGrid x:Name="DataView1" HorizontalAlignment="Left" Margin="32,58,0,0" VerticalAlignment="Top" Height="318" Width="507" Loaded="Window_Load"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="BookGrid" Margin="10,10,297,10" MouseUp="grid_MouseUp">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="id" Width="30"/>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Заголовок" Width="110"/>
+                <DataGridTextColumn Binding="{Binding Author}" Header="Автор" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Publisher}" Header="Издатель" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Сirculation}" Header="Тираж" Width="50"/>
+                <DataGridTextColumn Binding="{Binding genre}" Header="Жанр" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Year}" Header="Год" Width="35"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="830,39,0,0" VerticalAlignment="Top" Width="143" Height="38" Click="Add"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="830,82,0,0" VerticalAlignment="Top" Width="143" Height="38"/>
+        <Button Content="Детальнее" HorizontalAlignment="Left" Margin="830,125,0,0" VerticalAlignment="Top" Width="143" Height="38                 " Background="#FF6C80DA" Foreground="#FFF7F3F3" FontSize="18" FontFamily="Agency FB"/>
 
     </Grid>
 </Window>
