@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace LibraryBook
 {
-    class BookGenre:Type
+    public class BookGenre:Type
     {
 
-         public string genre { get; set; }
-
-         public ICollection<Book> books { get; set; }
-         public BookGenre()
-         {
-         books = new List<Book>();
-         }
+         public string Genre { get; set; }
+         
+        public virtual List<Book> Books { get; set; }
+         //public BookGenre()
+         //{
+         //books = new List<Book>();
+         //}
         //public BookGenre()
         //{
         //    genre = "N/A";
@@ -27,7 +27,7 @@ namespace LibraryBook
 
         public override string GetTYPE()
         {
-            return genre;
+            return Genre;
         }
     }
 }

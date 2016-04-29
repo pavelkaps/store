@@ -16,3 +16,10 @@ C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\bin\Debug\EntityFramework.xml
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\LibraryBook_MarkupCompile.lref
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AddBook.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AddMagazine.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\BookOrMagazine.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AddBook.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AddMagazine.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\BookOrMagazine.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\LibraryBook_Content.g.cs

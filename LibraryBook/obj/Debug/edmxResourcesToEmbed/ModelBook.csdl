@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newdbstore.mdfModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="BookGenres" EntityType="newdbstore.mdfModel.BookGenres" />
+    <EntitySet Name="Books" EntityType="newdbstore.mdfModel.Books" />
+    <AssociationSet Name="FK_dbo_Books_dbo_BookGenres_BookGenreId" Association="newdbstore.mdfModel.FK_dbo_Books_dbo_BookGenres_BookGenreId">
+      <End Role="BookGenres" EntitySet="BookGenres" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BookGenres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Genre" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Books" Relationship="newdbstore.mdfModel.FK_dbo_Books_dbo_BookGenres_BookGenreId" FromRole="BookGenres" ToRole="Books" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Author" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="BookGenreId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Publisher" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Сirculation" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BookGenres" Relationship="newdbstore.mdfModel.FK_dbo_Books_dbo_BookGenres_BookGenreId" FromRole="Books" ToRole="BookGenres" />
+  </EntityType>
+  <Association Name="FK_dbo_Books_dbo_BookGenres_BookGenreId">
+    <End Role="BookGenres" Type="newdbstore.mdfModel.BookGenres" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Books" Type="newdbstore.mdfModel.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookGenres">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="BookGenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

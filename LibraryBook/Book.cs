@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LibraryBook
 {
-    class Book : Entity
+   public class Book : Entity
     {
 
         public string Author { get; set; }
         public int Year { get; set; }
         
-        public int? BookGenreId { get; set; }
-        public BookGenre BookGenre { get; set; }
+        public int BookGenreId { get; set; }
+        public virtual BookGenre BookGenre { get; set; }
 
         public Book()
             : base()

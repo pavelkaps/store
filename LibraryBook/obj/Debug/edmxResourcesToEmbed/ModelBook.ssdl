@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище newdbstore.mdfModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище newdbstoremdfModelContainer">
+    <EntitySet Name="BookGenres" EntityType="Хранилище newdbstore.mdfModel.BookGenres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Books" EntityType="Хранилище newdbstore.mdfModel.Books" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_Books_dbo_BookGenres_BookGenreId" Association="Хранилище newdbstore.mdfModel.FK_dbo_Books_dbo_BookGenres_BookGenreId">
+      <End Role="BookGenres" EntitySet="BookGenres" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BookGenres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Genre" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Author" Type="nvarchar(max)" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="BookGenreId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Publisher" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Сirculation" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Books_dbo_BookGenres_BookGenreId">
+    <End Role="BookGenres" Type="Хранилище newdbstore.mdfModel.BookGenres" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Books" Type="Хранилище newdbstore.mdfModel.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookGenres">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="BookGenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

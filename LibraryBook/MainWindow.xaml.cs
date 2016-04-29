@@ -14,8 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Data;
-
-
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 namespace LibraryBook
 {
     /// <summary>
@@ -27,26 +27,29 @@ namespace LibraryBook
         BookGenreRepository DBGenre;
         MagazineTypeRepository DBType;
         MagazineRepository DBMagazine;
-
+        public ObservableCollection<Book> Books { get; private set; }
+        private BookContext db;
         public MainWindow()
         {
             DBBook = new BookRepository();
             DBGenre = new BookGenreRepository();
             DBType = new MagazineTypeRepository();
             DBMagazine = new MagazineRepository();
-
+            db = new BookContext();
+            Books = new ObservableCollection<Book>(db.dbBooks);
             InitializeComponent();
-            DBBook.Load();
-            BookGrid.ItemsSource = DBBook.Load(); 
+            //BookGrid.ItemsSource = DBBook.Load(); 
          }
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            
-            //Book pl1 = new Book();
-            //pl1.BookGenre = t1;
 
-            //DBBook.Insert(pl1);
+            BookGenre t1 = new BookGenre();
+            t1.Genre = "Приключения";
+            Book pl1 = new Book();
+            pl1.BookGenre = t1;
+
+            DBBook.Insert(pl1);
             
 
         }

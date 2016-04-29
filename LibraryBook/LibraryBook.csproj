@@ -43,6 +43,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,16 +63,58 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddBook.xaml.cs">
+      <DependentUpon>AddBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddMagazine.xaml.cs">
+      <DependentUpon>AddMagazine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BookContext.cs" />
     <Compile Include="BookGenre.cs" />
     <Compile Include="BookGenreRepository.cs" />
+    <Compile Include="BookGenres.cs">
+      <DependentUpon>ModelBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookOrMagazine.xaml.cs">
+      <DependentUpon>BookOrMagazine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BookRepository.cs" />
+    <Compile Include="Books.cs">
+      <DependentUpon>ModelBook.tt</DependentUpon>
+    </Compile>
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="MagazineContext.cs" />
     <Compile Include="MagazineRepository.cs" />
     <Compile Include="MagazineType.cs" />
     <Compile Include="MagazineTypeRepository.cs" />
+    <Compile Include="ModelBook.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBook.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBook.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBook.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBook.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Type.cs" />
+    <Page Include="AddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddMagazine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookOrMagazine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +149,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="ModelBook.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBook.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelBook.edmx.diagram">
+      <DependentUpon>ModelBook.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -115,6 +167,24 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelBook.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBook.edmx</DependentUpon>
+      <LastGenOutput>ModelBook.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBook.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBook.edmx</DependentUpon>
+      <LastGenOutput>ModelBook.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
