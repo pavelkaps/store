@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace LibraryBook
 {
-    class MagazineType:Type
+    public class MagazineType:Type
     {
         public string type { get; set; }
         
-        public ICollection<Magazine> journals { get; set; }
+        public virtual List<Magazine> journals { get; set; }
         public MagazineType()
         {
             journals = new List<Magazine>();

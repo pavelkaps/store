@@ -19,9 +19,58 @@ namespace LibraryBook
     /// </summary>
     public partial class BookOrMagazine : Window
     {
-        public BookOrMagazine()
+        AddBook AddBookForm;
+        AddMagazine AddMagazineForm;
+        AddType AddTypeForm;
+        MainWindow main;
+        
+        public BookOrMagazine(MainWindow _main)
         {
+            main = _main;
             InitializeComponent();
         }
+
+        private void AddBook(object sender, RoutedEventArgs e)
+        {
+            AddBookForm = new AddBook(main);
+            AddBookForm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            if (AddBookForm.ShowDialog() == true)
+            {
+                this.DialogResult = true;
+                this.Close();
+            }
+            this.DialogResult = false;
+            Close();
+        }
+
+        private void AddMagazine(object sender, RoutedEventArgs e)
+        {
+            AddMagazineForm = new AddMagazine(main);
+            AddMagazineForm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            if (AddMagazineForm.ShowDialog() == true)
+            {
+                this.DialogResult = true;
+                this.Close();
+            }
+
+            this.DialogResult = false;
+            Close();
+        }
+
+        private void AddType(object sender, RoutedEventArgs e)
+        {
+            AddTypeForm = new AddType(main);
+            AddTypeForm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            if (AddTypeForm.ShowDialog() == true)
+            {
+                this.DialogResult = true;
+                this.Close();
+            }
+            this.DialogResult = false;
+            Close();
+        }
+
+        
+
     }
 }

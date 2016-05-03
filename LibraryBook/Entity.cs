@@ -13,6 +13,9 @@ namespace LibraryBook
         public string Publisher { get; set; }
         public string Description { get; set; }
         public int Сirculation { get; set; }
+        public int Rating {get; set;}
+        public bool Availability { get; set; }
+        public string AvailabilityToString { get; set; }
 
         public Entity()
         {
@@ -21,16 +24,27 @@ namespace LibraryBook
         Publisher = "N/A";
         Description = "N/A";
         Сirculation = 0;
+        Rating = 0;
+        Availability = false;
+        SetAvailability();
         }
 
-        public Entity(int Id, string title, string desc, string Publisher, int Сirculation)
+        public Entity(int Id, string title, string desc, string Publisher, int Сirculation, int Rating)
         {
         this.Id = Id;
         this.Title = title;
         this.Publisher = 
         this.Description = desc;
         this.Сirculation = Сirculation;
+        this.Rating = Rating;
         }
+
+        public void SetAvailability()
+        {
+            if (Availability == true) { AvailabilityToString = "В наличии"; } else { AvailabilityToString = "-"; }
+
+        }
+        
 
     }
 }

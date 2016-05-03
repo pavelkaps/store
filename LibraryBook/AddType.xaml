@@ -1,0 +1,14 @@
+﻿<Window x:Class="LibraryBook.AddType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddType" Height="128.359" Width="300">
+    <Grid Height="118" VerticalAlignment="Top" Margin="0,0,0,-21">
+        <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" Margin="19,18,0,0" VerticalAlignment="Top" Width="87">
+            <ComboBoxItem Content="Жанр"> </ComboBoxItem>
+            <ComboBoxItem Content="Тип"></ComboBoxItem>
+        </ComboBox> 
+        <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="23" Margin="124,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="Cancel" Content="Отменить" HorizontalAlignment="Left" Margin="124,55,0,0" VerticalAlignment="Top" Width="68" Height="24" Click="Cancel_Click"/>
+        <Button x:Name="Ok" Content="Сохранить" HorizontalAlignment="Left" Margin="206,55,0,0" VerticalAlignment="Top" Width="68" Height="24" RenderTransformOrigin="0.483,0.75" Click="Ok_Click" />
+    </Grid>
+</Window>

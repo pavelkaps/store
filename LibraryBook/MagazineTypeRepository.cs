@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace LibraryBook
 {
-    class MagazineTypeRepository:IEntityRepository<MagazineType>
+    public class MagazineTypeRepository : IEntityRepository<IDbSet<MagazineType>>
     {
         public void Insert(object a)
         {
@@ -25,14 +25,11 @@ namespace LibraryBook
             dbContext.SaveChanges();
         }
 
-        public BindingList<MagazineType> Load()
+        public IDbSet<MagazineType> Load()
         {
             var dbContext = new MagazineContext();
-            BindingList<MagazineType> genre = new BindingList<MagazineType>();
             dbContext.dbType.Load();
-
-            genre = dbContext.dbType.Local.ToBindingList();
-            return genre;
+            return dbContext.dbType;
         }
 
         public object Find(int id)

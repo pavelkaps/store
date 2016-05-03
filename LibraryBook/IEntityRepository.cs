@@ -7,12 +7,12 @@ using System.ComponentModel;
 
 namespace LibraryBook
 {
-    interface IEntityRepository<T>
+    public interface IEntityRepository<T>
     {
         void Insert(object a);
         void Delete(int id);
         object Find(int id);
-        BindingList<T> Load();
+        T Load();
        
     }
 }

@@ -7,8 +7,9 @@ using System.ComponentModel;
 using System.Data.Entity;
 namespace LibraryBook
 {
-    class BookGenreRepository:IEntityRepository<BookGenre>
+    public class BookGenreRepository : IEntityRepository<IDbSet<BookGenre>>
     {
+        
         public void Insert(object a)
         {
             var dbContext = new BookContext();
@@ -24,14 +25,11 @@ namespace LibraryBook
             dbContext.SaveChanges();
         }
 
-        public BindingList<BookGenre> Load()
+        public IDbSet<BookGenre> Load()
         {
             var dbContext = new BookContext();
-            BindingList<BookGenre> genre = new BindingList<BookGenre>();
             dbContext.dbGenre.Load();
-
-            genre = dbContext.dbGenre.Local.ToBindingList();
-            return genre;
+            return dbContext.dbGenre;
         }
 
         public object Find(int id)

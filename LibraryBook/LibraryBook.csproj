@@ -63,11 +63,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutBook.xaml.cs">
+      <DependentUpon>AboutBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddMagazine.xaml.cs">
       <DependentUpon>AddMagazine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddType.xaml.cs">
+      <DependentUpon>AddType.xaml</DependentUpon>
     </Compile>
     <Compile Include="BookContext.cs" />
     <Compile Include="BookGenre.cs" />
@@ -103,11 +109,19 @@
       <DependentUpon>ModelBook.edmx</DependentUpon>
     </Compile>
     <Compile Include="Type.cs" />
+    <Page Include="AboutBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddMagazine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

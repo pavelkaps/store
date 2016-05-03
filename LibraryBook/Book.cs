@@ -22,8 +22,8 @@ namespace LibraryBook
             Year = 0;
         }
 
-        public Book(int Id, string title, string desc, string Publisher, int Сirculation, string Author, int Year)
-            : base(Id, title, desc, Publisher, Сirculation)
+        public Book(int Id, string title, string desc, string Publisher, int Сirculation, string Author, int Year, int Rating)
+            : base(Id, title, desc, Publisher, Сirculation, Rating)
         {
             this.Author = Author;
             this.Year = Year;

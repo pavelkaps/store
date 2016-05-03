@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.ComponentModel;
 namespace LibraryBook
 {
-    class MagazineRepository:IEntityRepository<Magazine>
+    public class MagazineRepository : IEntityRepository<IDbSet<Magazine>>
     {
         public void Insert(object a)
         {
@@ -24,14 +24,12 @@ namespace LibraryBook
             dbContext.SaveChanges();
         }
 
-        public BindingList<Magazine> Load()
+        public IDbSet<Magazine> Load()
         {
             var dbContext = new MagazineContext();
-            BindingList<Magazine> m = new BindingList<Magazine>();
             dbContext.dbJournals.Load();
-
-            m = dbContext.dbJournals.Local.ToBindingList();
-            return m;
+            dbContext.dbType.Load();
+            return dbContext.dbJournals;
         }
         
 
