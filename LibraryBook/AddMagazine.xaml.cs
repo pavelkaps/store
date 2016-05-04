@@ -26,6 +26,7 @@ namespace LibraryBook
         {
             Main = _main;
             InitializeComponent();
+            MagazineLoad();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

@@ -24,7 +24,7 @@
                 <DataGridTextColumn Binding="{Binding Id}" Header="id" Width="30"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid AutoGenerateColumns="False" x:Name="MagazineGrid" Margin="10,34,0,1" MouseUp="grid_MouseUp" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" LoadingRow="LoadGrid_LoadingRow" HorizontalAlignment="Left" Width="562">
+        <DataGrid AutoGenerateColumns="False" x:Name="MagazineGrid" Margin="10,34,0,1" MouseUp="MagazineGrid_MouseUp" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" LoadingRow="LoadGrid_LoadingRow" HorizontalAlignment="Left" Width="562">
             <DataGrid.Columns>
 
                 <DataGridTextColumn Binding="{Binding Title}" Header="Заголовок" Width="130"/>
@@ -43,8 +43,7 @@
         </ComboBox>
         <Label Content="Показать таблицу:" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
         <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" Margin="372,6,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
-        
-        <Label x:Name="TypeLabel" Content="Label" HorizontalAlignment="Left" Margin="268,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.118,0.558" Height="26" Width="38"/>
+        <TextBlock x:Name="TypeLabel" HorizontalAlignment="Left" Margin="261,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

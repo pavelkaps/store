@@ -27,3 +27,9 @@ C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AddType.g.cs
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AboutBook.baml
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AboutBook.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AboutMagazine.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\AboutMagazine.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\Edit.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\EditMagazine.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\Edit.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\EditMagazine.g.cs

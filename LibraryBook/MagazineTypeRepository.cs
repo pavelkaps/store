@@ -39,6 +39,14 @@ namespace LibraryBook
             return type;
         }
 
+        public void Update(object a)
+        {
+            var db = new MagazineContext();
+            db.dbType.Load();
+            db.Entry((MagazineType)a).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
     }
 
 }

@@ -20,11 +20,14 @@ namespace LibraryBook
     public partial class AboutBook : Window
     
     {
+
         Book book;
-        public AboutBook(Book _book)
+        MainWindow main;
+        public AboutBook(Book _book, MainWindow _main)
         {
             InitializeComponent();
             book = _book;
+            main = _main;
             SetBook();
         }
         
@@ -37,7 +40,9 @@ namespace LibraryBook
             DescriptionBox.Text = book.Description;
             CirculationBox.Text = book.Сirculation.ToString();
             Rate.Text = book.Rating.ToString();
-            
+            id.Text = "id: " + book.Id;
+            if (book.Availability == true) { NoAvailability.Text = ""; Availability.Text = "В наличии"; }
+            if (book.Availability == false) { Availability.Text = ""; NoAvailability.Text = "Нет в наличии"; }
 
         }
 
@@ -48,12 +53,23 @@ namespace LibraryBook
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            main.GetBookDb().Delete(book.Id);
+            MessageBox.Show("Запись удалена");
+            main.UpdateDataGrid();
+            Close();
 
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-
+            Edit form = new Edit(book, main);
+            form.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            if (form.ShowDialog() == true)
+            {
+                book = form.GetBook();
+                SetBook();
+            }
+            
         }
     }
 }

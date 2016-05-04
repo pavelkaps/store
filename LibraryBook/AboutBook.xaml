@@ -6,9 +6,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Книга" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Width="67" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Книга" HorizontalAlignment="Left" Margin="23,14,0,0" VerticalAlignment="Top" Width="67" FontWeight="Bold" FontSize="20"/>
         <Label Content="" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <TextBlock x:Name="TitleBox" HorizontalAlignment="Left" Margin="97,17,0,0" TextWrapping="Wrap" Text="&quot;Заголовок&quot;" VerticalAlignment="Top" Height="30" Width="277" FontSize="20" FontWeight="Bold"/>
+        <TextBlock x:Name="TitleBox" HorizontalAlignment="Left" Margin="97,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="277" FontSize="20" FontWeight="Bold"><Run Text="&quot;Заголовок&quot;"/></TextBlock>
         <TextBlock x:Name="YearBox" HorizontalAlignment="Left" Margin="124,112,0,0" TextWrapping="Wrap" Text="---Год---" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="GenreBox" HorizontalAlignment="Left" Margin="124,158,0,0" TextWrapping="Wrap" Text="---Жанр---" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="DescriptionBox" HorizontalAlignment="Left" Margin="124,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.971,0.815" FontSize="14" Height="125" Width="252"><Run Text="---Описание---"/></TextBlock>
@@ -21,10 +21,13 @@
         <Label Content="Тираж:" HorizontalAlignment="Left" Margin="47,130,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Жанр:" HorizontalAlignment="Left" Margin="54,153,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Описание:" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBlock HorizontalAlignment="Left" Margin="292,83,0,0" TextWrapping="Wrap" Text="/10" VerticalAlignment="Top" Height="70" Width="86" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Left" Margin="292,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="86" FontSize="50"><Run Text="/10"/></TextBlock>
         <TextBlock x:Name="Rate" HorizontalAlignment="Left" Margin="198,53,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="82" Width="102" FontSize="64" TextAlignment="Right"/>
         <Button x:Name="Edit" Content="Редактировать" Margin="259,337,64,0" Height="33" VerticalAlignment="Top" Click="Edit_Click"/>
         <Button x:Name="Ok" Content="OK" HorizontalAlignment="Left" Margin="160,337,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Ok_Click"/>
         <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="60,337,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Delete_Click"/>
+        <TextBlock x:Name="id" HorizontalAlignment="Left" Margin="344,7,0,0" TextWrapping="Wrap" Text="id:" VerticalAlignment="Top" Width="59"/>
+        <TextBlock x:Name="Availability" HorizontalAlignment="Left" Margin="251,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Foreground="#FF009E24"><Run Text="TextBlo"/><Run Text="ck"/></TextBlock>
+        <TextBlock x:Name="NoAvailability" HorizontalAlignment="Left" Margin="251,7,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFE80A0A"/>
     </Grid>
 </Window>

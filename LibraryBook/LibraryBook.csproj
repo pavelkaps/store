@@ -66,6 +66,9 @@
     <Compile Include="AboutBook.xaml.cs">
       <DependentUpon>AboutBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AboutMagazine.xaml.cs">
+      <DependentUpon>AboutMagazine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,12 @@
     <Compile Include="BookRepository.cs" />
     <Compile Include="Books.cs">
       <DependentUpon>ModelBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Edit.xaml.cs">
+      <DependentUpon>Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditMagazine.xaml.cs">
+      <DependentUpon>EditMagazine.xaml</DependentUpon>
     </Compile>
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="MagazineContext.cs" />
@@ -113,6 +122,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AboutMagazine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +139,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BookOrMagazine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditMagazine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

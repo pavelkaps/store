@@ -9,22 +9,10 @@ namespace LibraryBook
     public class BookGenre:Type
     {
 
-         public string Genre { get; set; }
+        public string Genre { get; set; }
          
         public virtual List<Book> Books { get; set; }
-         //public BookGenre()
-         //{
-         //books = new List<Book>();
-         //}
-        //public BookGenre()
-        //{
-        //    genre = "N/A";
-        //}
-        //public BookGenre(string _genre)
-        //{
-        //    genre = _genre;
-        //}
-
+        
         public override string GetTYPE()
         {
             return Genre;

@@ -12,6 +12,7 @@ namespace LibraryBook
         void Insert(object a);
         void Delete(int id);
         object Find(int id);
+        void Update(object a);
         T Load();
        
     }

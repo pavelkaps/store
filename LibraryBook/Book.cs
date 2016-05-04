@@ -14,10 +14,11 @@ namespace LibraryBook
         
         public int BookGenreId { get; set; }
         public virtual BookGenre BookGenre { get; set; }
-
+        
         public Book()
             : base()
         {
+            
             Author = "N/A";
             Year = 0;
         }

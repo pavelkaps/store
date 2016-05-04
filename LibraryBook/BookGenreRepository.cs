@@ -38,5 +38,12 @@ namespace LibraryBook
             BookGenre genre = dbContext.dbGenre.Find(id);
             return genre;
         }
+        public void Update(object a)
+        {
+            var db = new BookContext();
+            db.dbGenre.Load();
+            db.Entry((BookGenre)a).State = EntityState.Modified;
+            db.SaveChanges();
+        }
     }
 }
