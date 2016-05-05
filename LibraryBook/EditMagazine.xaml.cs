@@ -85,9 +85,9 @@ namespace LibraryBook
 
             magazine.Rating = int.Parse(Rate.Text);
             magazine.SetAvailability();
-
-            //magazine.MagazineType = (MagazineType)TypeBox.SelectedItem;
-            main.GetMagazineDB().Update(magazine);
+            MagazineType type = (MagazineType)TypeBox.SelectedItem;
+            int id = type.Id;
+            main.GetMagazineDB().Update(magazine, id);
 
             this.DialogResult = true;
             Close();

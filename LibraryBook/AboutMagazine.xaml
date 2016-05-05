@@ -25,8 +25,8 @@
         <Button x:Name="Ok" Content="OK" HorizontalAlignment="Left" Margin="160,312,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Ok_Click"/>
         <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="60,312,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Delete_Click"/>
         <TextBlock x:Name="id" HorizontalAlignment="Left" Margin="340,9,0,0" TextWrapping="Wrap" Text="id:" VerticalAlignment="Top" Width="59"/>
-        <TextBlock x:Name="Availability" HorizontalAlignment="Left" Margin="252,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Foreground="#FF009E24"><Run Text="TextBlo"/><Run Text="ck"/></TextBlock>
-        <TextBlock x:Name="NoAvailability" HorizontalAlignment="Left" Margin="252,9,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFE80A0A"/>
+        <TextBlock x:Name="Availability" HorizontalAlignment="Left" Margin="259,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Foreground="#FF009E24"><Run Text="TextBlo"/><Run Text="ck"/></TextBlock>
+        <TextBlock x:Name="NoAvailability" HorizontalAlignment="Left" Margin="259,9,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFE80A0A"/>
     </Grid>
 </Window>
 

@@ -7,23 +7,21 @@ using System.Data.Entity;
 using System.ComponentModel;
 namespace LibraryBook
 {
-    public class MagazineRepository : IEntityRepository<IDbSet<Magazine>>
+    public class MagazineRepository : IEntityRepository<Magazine>
     {
         MagazineContext dbContext;
         public MagazineRepository()
         {
             dbContext = new MagazineContext();
         }
-        public void Insert(object a)
+        public void Insert(Magazine a)
         {
-            //var dbContext = new MagazineContext();
-            dbContext.dbJournals.Add((Magazine)a);
+            dbContext.dbJournals.Add(a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            //var dbContext = new MagazineContext();
             Magazine m = dbContext.dbJournals.Find(id);
             dbContext.dbJournals.Remove(m);
             dbContext.SaveChanges();
@@ -31,25 +29,29 @@ namespace LibraryBook
 
         public IDbSet<Magazine> Load()
         {
-            //var dbContext = new MagazineContext();
             dbContext.dbJournals.Load();
             dbContext.dbType.Load();
             return dbContext.dbJournals;
         }
         
-
-
-        public object Find(int id)
+        public Magazine Find(int id)
         {
-            //var dbContext = new MagazineContext();
             Magazine m = dbContext.dbJournals.Find(id);
             return m;
         }
-        public void Update(object a)
+        public void Update(Magazine a, int id)
         {
-            //var db = new MagazineContext();
-            //db.dbJournals.Load();
-            //db.Entry((Magazine)a).State = EntityState.Modified;
+            MagazineType Genre = dbContext.dbType.Find(id);
+            a.MagazineType = Genre;
+            dbContext.Entry(a).State = EntityState.Modified;
+            dbContext.SaveChanges();
+        }
+        
+        public void InsertWithId(Magazine a, int id)
+        {
+            MagazineType Type = dbContext.dbType.Find(id);
+            a.MagazineType = Type;
+            dbContext.dbJournals.Add(a);
             dbContext.SaveChanges();
         }
     }

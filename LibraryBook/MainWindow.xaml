@@ -4,14 +4,13 @@
         
       xmlns:local="clr-namespace:LibraryBook" x:Class="LibraryBook.MainWindow"
         
-      Title="Library" Height="440.396" Width="782.732">
-    <Grid Margin="10,10,-39,17">
+      Title="Library" Height="441.396" Width="771.732">
+    <Grid Margin="10,10,-8,12" HorizontalAlignment="Left" Width="748">
         <Grid.ColumnDefinitions>
             
-            <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid AutoGenerateColumns="False" x:Name="BookGrid" Margin="10,34,22,1" MouseUp="grid_MouseUp" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" LoadingRow="LoadGrid_LoadingRow">
+        <DataGrid AutoGenerateColumns="False" x:Name="BookGrid" Margin="10,44,27,1" MouseUp="grid_MouseUp" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" LoadingRow="LoadGrid_LoadingRow">
             <DataGrid.Columns>
                
                 <DataGridTextColumn Binding="{Binding Title}" Header="Заголовок" Width="110"/>
@@ -24,7 +23,7 @@
                 <DataGridTextColumn Binding="{Binding Id}" Header="id" Width="30"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid AutoGenerateColumns="False" x:Name="MagazineGrid" Margin="10,34,0,1" MouseUp="MagazineGrid_MouseUp" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" LoadingRow="LoadGrid_LoadingRow" HorizontalAlignment="Left" Width="562">
+        <DataGrid AutoGenerateColumns="False" x:Name="MagazineGrid" Margin="10,44,0,0" MouseUp="MagazineGrid_MouseUp" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected" LoadingRow="LoadGrid_LoadingRow" HorizontalAlignment="Left" Width="711" Height="343" VerticalAlignment="Top">
             <DataGrid.Columns>
 
                 <DataGridTextColumn Binding="{Binding Title}" Header="Заголовок" Width="130"/>
@@ -36,14 +35,17 @@
                 <DataGridTextColumn Binding="{Binding Id}" Header="id" Width="30"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить" Margin="0,34,0,0" VerticalAlignment="Top" Height="38" Click="Add" HorizontalAlignment="Left" Width="150" Grid.Column="1"/>
-        <ComboBox x:Name="EntityBox" HorizontalAlignment="Left" Margin="127,6,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EntityBox_Selected" Height="22">
+        <Button Content="Добавить" Margin="526,6,0,349" Click="Add" HorizontalAlignment="Left" Width="95"/>
+        <ComboBox x:Name="EntityBox" HorizontalAlignment="Left" Margin="127,7,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EntityBox_Selected" Height="22">
             <ComboBoxItem Content="Книги"></ComboBoxItem>
             <ComboBoxItem Content="Журналы"></ComboBoxItem>
         </ComboBox>
-        <Label Content="Показать таблицу:" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
-        <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" Margin="372,6,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBlock x:Name="TypeLabel" HorizontalAlignment="Left" Margin="261,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Label Content="Показать таблицу:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
+        <ComboBox x:Name="GenreBox" HorizontalAlignment="Left" Margin="372,7,0,0" VerticalAlignment="Top" Width="120" Height="22" SelectionChanged="TypeBox_SelectionChanged"/>
+        <TextBlock x:Name="TypeLabel" HorizontalAlignment="Left" Margin="261,11,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button x:Name="SeachBook" Content="Поиск" Margin="626,6,0,349" HorizontalAlignment="Left" Width="95" Click="Seach_Click"/>
+        <Button x:Name="SeachMagazine" Content="Поиск" HorizontalAlignment="Left" Margin="626,6,0,349" Width="95" RenderTransformOrigin="-0.96,-1.65" Click="SeachMagazine_Click"/>
+        <ComboBox x:Name="TypeBox" HorizontalAlignment="Left" Margin="372,7,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="TypeSelect"/>
 
     </Grid>
 </Window>

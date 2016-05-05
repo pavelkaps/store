@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Data.Entity;
 namespace LibraryBook
 {
     /// <summary>
@@ -85,10 +85,10 @@ namespace LibraryBook
             book.Rating = int.Parse(Rate.Text);
 
             book.SetAvailability();
-            
-            //book.BookGenre = (BookGenre)GenreBox.SelectedItem;
+            BookGenre genre = (BookGenre)GenreBox.SelectedItem;
+            int id = genre.Id;
+            main.DBBook.Update(book, id);
 
-            main.DBBook.Update(book);
             this.DialogResult = true;
             Close();
         }

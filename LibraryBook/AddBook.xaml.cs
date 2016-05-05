@@ -45,7 +45,7 @@ namespace LibraryBook
             newBook.SetAvailability();
 
             newBook.BookGenre = (BookGenre)GenreBox.SelectedItem;
-            main.GetBookDb().Insert(newBook);
+            main.GetBookDb().InsertWithId(newBook,newBook.BookGenre.Id);
           
             this.DialogResult = true;
             Close();

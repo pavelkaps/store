@@ -39,7 +39,7 @@ namespace LibraryBook
                 this.DialogResult = true;
                 this.Close();
             }
-            this.DialogResult = false;
+            
             Close();
         }
 
@@ -53,7 +53,7 @@ namespace LibraryBook
                 this.Close();
             }
 
-            this.DialogResult = false;
+            
             Close();
         }
 

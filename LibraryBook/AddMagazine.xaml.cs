@@ -48,9 +48,9 @@ namespace LibraryBook
             newMagazine.Rating = int.Parse(Rate.Text);
             newMagazine.SetAvailability();
             
+            
             newMagazine.MagazineType = (MagazineType)TypeBox.SelectedItem;
-            Main.GetMagazineDB().Insert(newMagazine);
-
+            Main.GetMagazineDB().InsertWithId(newMagazine, newMagazine.MagazineType.Id);
             this.DialogResult = true;
             Close();
         }

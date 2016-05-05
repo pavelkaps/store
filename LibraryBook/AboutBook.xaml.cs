@@ -32,6 +32,7 @@ namespace LibraryBook
         }
         
         public void SetBook(){
+            
             TitleBox.Text = "\"" + book.Title + "\"";
             AuthorBox.Text = book.Author;
             PublisherBox.Text = book.Publisher;
@@ -69,7 +70,6 @@ namespace LibraryBook
                 book = form.GetBook();
                 SetBook();
             }
-            
         }
     }
 }

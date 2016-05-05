@@ -34,55 +34,51 @@ namespace LibraryBook
             DBGenre = new BookGenreRepository();
             DBType = new MagazineTypeRepository();
             DBMagazine = new MagazineRepository();
-           
+
             InitializeComponent();
-            
+
             EntityBox.SelectedIndex = 0;
             MagazineGrid.Visibility = Visibility.Collapsed;
+            
+            LoadCombobox();
             BookLoad();
-         }
-
+        }
+        private void LoadCombobox()
+        {
+            TypeBox.ItemsSource = GetTypeDB().Load().Local.ToList();
+            TypeBox.SelectedValuePath = "Id";
+            TypeBox.DisplayMemberPath = "type";
+            
+            
+            GenreBox.ItemsSource = GetGenreDB().Load().Local.ToList();
+            GenreBox.SelectedValuePath = "Id";
+            GenreBox.DisplayMemberPath = "Genre";
+            
+            TypeBox.Visibility = Visibility.Collapsed;
+        }
         private void Add(object sender, RoutedEventArgs e)
         {
             BookOrMagazine form = new BookOrMagazine(this);
             form.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-           
+
             if (form.ShowDialog() == true)
             {
                 UpdateDataGrid();
             }
-
-            //BookGenre t = new BookGenre();
-            //t.Genre = "Приключения";
-            //Book newBook = new Book();
-            //newBook.BookGenre = t;
-            //DBBook.Insert(newBook);
-
-            //MagazineType tp = new MagazineType();
-            //tp.type = "Стиль";
-            //Magazine newMagazine = new Magazine();
-            //newMagazine.MagazineType = tp;
-            //DBMagazine.Insert(newMagazine);
-
-
-            //BookGenre t = (BookGenre)DBGenre.Find(2);
-            //Book n = new Book();
-            //n.BookGenre = t;
-            //DBBook.Insert(n);
-
-         }
+        }
 
         private void Window_Load(object sender, RoutedEventArgs e)
         {
-           
+
         }
-        
+
         private void grid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Book path = BookGrid.SelectedItem as Book;
-            AboutBook frm = new AboutBook(path,this);
+            AboutBook frm = new AboutBook(path, this);
             frm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             frm.ShowDialog();
+            
             UpdateDataGrid();
         }
 
@@ -90,43 +86,52 @@ namespace LibraryBook
         {
             e.Row.Header = "  " + (e.Row.GetIndex() + 1) + "  ";
         }
-        
+
 
         private void BookLoad()
         {
             BookGrid.ItemsSource = DBBook.Load().Local.ToBindingList();
             TypeLabel.Text = "Выберите жанр:";
-            TypeBox.ItemsSource = GetGenreDB().Load().Local.ToList();
             
-            TypeBox.SelectedValuePath = "Id";
-            TypeBox.DisplayMemberPath = "Genre";
-            TypeBox.SelectedIndex = 0;
+            SeachBook.Visibility = Visibility.Visible;
+            SeachMagazine.Visibility = Visibility.Collapsed;
+
+            GenreBox.Visibility = Visibility.Visible;
+            TypeBox.Visibility = Visibility.Collapsed;
         }
 
         private void MagazineLoad()
         {
             MagazineGrid.ItemsSource = DBMagazine.Load().Local.ToBindingList();
             TypeLabel.Text = "Выберите тип:";
-            TypeBox.ItemsSource = GetTypeDB().Load().Local.ToList();
-            TypeBox.SelectedValuePath = "Id";
-            TypeBox.DisplayMemberPath = "type";
-            TypeBox.SelectedIndex = 0;
+            
+            SeachMagazine.Visibility = Visibility.Visible;
+            SeachBook.Visibility = Visibility.Collapsed;
+
+            TypeBox.Visibility = Visibility.Visible;
+            GenreBox.Visibility = Visibility.Collapsed;
         }
 
         private void EntityBox_Selected(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            if (selectedItem.Content.ToString() == "Книги") { MagazineGrid.Visibility = Visibility.Collapsed; BookGrid.Visibility = Visibility.Visible;  }
+            if (selectedItem.Content.ToString() == "Книги") { MagazineGrid.Visibility = Visibility.Collapsed; BookGrid.Visibility = Visibility.Visible; BookLoad(); }
             if (selectedItem.Content.ToString() == "Журналы") { BookGrid.Visibility = Visibility.Collapsed; MagazineGrid.Visibility = Visibility.Visible; MagazineLoad(); } //MagazineLoad();BookLoad();
 
         }
 
+        public void DefaultDataGrid()
+        {
+            ComboBoxItem selectedItem = (ComboBoxItem)EntityBox.SelectedItem;
+            if (selectedItem.Content.ToString() == "Книги") { MagazineGrid.Visibility = Visibility.Collapsed; BookGrid.Visibility = Visibility.Visible; BookLoad(); }
+            if (selectedItem.Content.ToString() == "Журналы") { BookGrid.Visibility = Visibility.Collapsed; MagazineGrid.Visibility = Visibility.Visible; MagazineLoad(); } //MagazineLoad();BookLoad();
+        }
         public void UpdateDataGrid()
         {
-            BookGrid.ItemsSource = null;                  //refresh DataGrig
+            BookGrid.ItemsSource = null;
             BookLoad();
-            MagazineGrid.ItemsSource = null;                  //refresh DataGrig
+            MagazineGrid.ItemsSource = null;
             MagazineLoad();
         }
 
@@ -147,15 +152,15 @@ namespace LibraryBook
 
         public MagazineRepository GetMagazineDB()
         {
-
             return DBMagazine;
         }
 
-        public MagazineTypeRepository GetTypeDB(){
+        public MagazineTypeRepository GetTypeDB()
+        {
             return DBType;
         }
 
-       
+
 
         private void MagazineGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -165,7 +170,34 @@ namespace LibraryBook
             frm.ShowDialog();
             UpdateDataGrid();
         }
+
+        private void Seach_Click(object sender, RoutedEventArgs e)
+        {
+            SeachForm form = new SeachForm(this);
+            form.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            form.SetAsBook();
+            form.Show();
+        }
+
+        private void SeachMagazine_Click(object sender, RoutedEventArgs e)
+        {
+            SeachForm form = new SeachForm(this);
+            form.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            form.SetAsMagazine();
+            form.Show();
+        }
+
+        private void TypeBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BookGenre BookGenre = (BookGenre)GenreBox.SelectedItem;
+             BookGrid.ItemsSource = BookGenre.Books;
+        }
+
+        private void TypeSelect(object sender, SelectionChangedEventArgs e)
+        {
+            MagazineType TypeMagazine = (MagazineType)TypeBox.SelectedItem;
+            MagazineGrid.ItemsSource = TypeMagazine.journals;
         }
 
     }
-
+}

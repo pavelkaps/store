@@ -8,12 +8,12 @@ using System.Data.Entity;
 
 namespace LibraryBook
 {
-    public class MagazineTypeRepository : IEntityRepository<IDbSet<MagazineType>>
+    public class MagazineTypeRepository : IEntityRepository<MagazineType>
     {
-        public void Insert(object a)
+        public void Insert(MagazineType a)
         {
             var dbContext = new MagazineContext();
-            dbContext.dbType.Add((MagazineType)a);
+            dbContext.dbType.Add(a);
             dbContext.SaveChanges();
         }
 
@@ -32,14 +32,14 @@ namespace LibraryBook
             return dbContext.dbType;
         }
 
-        public object Find(int id)
+        public MagazineType Find(int id)
         {
             var dbContext = new MagazineContext();
             MagazineType type = dbContext.dbType.Find(id);
             return type;
         }
 
-        public void Update(object a)
+        public void Update(MagazineType a)
         {
             var db = new MagazineContext();
             db.dbType.Load();

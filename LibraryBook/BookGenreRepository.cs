@@ -7,19 +7,23 @@ using System.ComponentModel;
 using System.Data.Entity;
 namespace LibraryBook
 {
-    public class BookGenreRepository : IEntityRepository<IDbSet<BookGenre>>
+    public class BookGenreRepository : IEntityRepository<BookGenre>
     {
-        
-        public void Insert(object a)
+        BookContext dbContext;
+        public BookGenreRepository()
         {
-            var dbContext = new BookContext();
-            dbContext.dbGenre.Add((BookGenre)a);
+            dbContext = new BookContext();
+        }
+        public void Insert(BookGenre a)
+        {
+            //var dbContext = new BookContext();
+            dbContext.dbGenre.Add(a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var dbContext = new BookContext();
+            //var dbContext = new BookContext();
             BookGenre book = dbContext.dbGenre.Find(id);
             dbContext.dbGenre.Remove(book);
             dbContext.SaveChanges();
@@ -27,23 +31,20 @@ namespace LibraryBook
 
         public IDbSet<BookGenre> Load()
         {
-            var dbContext = new BookContext();
+            //var dbContext = new BookContext();
             dbContext.dbGenre.Load();
             return dbContext.dbGenre;
         }
 
-        public object Find(int id)
+        public BookGenre Find(int id)
         {
-            var dbContext = new BookContext();
+            //var dbContext = new BookContext();
             BookGenre genre = dbContext.dbGenre.Find(id);
             return genre;
         }
-        public void Update(object a)
+        public void Update(BookGenre a)
         {
-            var db = new BookContext();
-            db.dbGenre.Load();
-            db.Entry((BookGenre)a).State = EntityState.Modified;
-            db.SaveChanges();
+           dbContext.SaveChanges();
         }
     }
 }
