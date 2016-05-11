@@ -27,6 +27,7 @@ namespace LibraryBook
             book = _book;
             InitializeComponent();
             SetBookOnForm();
+            DescriptionBox.MaxLength = 190;
         }
 
         public void SetBookOnForm(){
@@ -85,9 +86,9 @@ namespace LibraryBook
             book.Rating = int.Parse(Rate.Text);
 
             book.SetAvailability();
-            BookGenre genre = (BookGenre)GenreBox.SelectedItem;
-            int id = genre.Id;
-            main.DBBook.Update(book, id);
+            book.BookGenre = (BookGenre)GenreBox.SelectedItem;
+            
+            main.DBBook.Update();
 
             this.DialogResult = true;
             Close();

@@ -11,7 +11,7 @@
         <TextBlock x:Name="TitleBox" HorizontalAlignment="Left" Margin="97,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="277" FontSize="20" FontWeight="Bold"><Run Text="&quot;Заголовок&quot;"/></TextBlock>
         <TextBlock x:Name="YearBox" HorizontalAlignment="Left" Margin="124,112,0,0" TextWrapping="Wrap" Text="---Год---" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="GenreBox" HorizontalAlignment="Left" Margin="124,158,0,0" TextWrapping="Wrap" Text="---Жанр---" VerticalAlignment="Top" FontSize="14"/>
-        <TextBlock x:Name="DescriptionBox" HorizontalAlignment="Left" Margin="124,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.971,0.815" FontSize="14" Height="125" Width="252"><Run Text="---Описание---"/></TextBlock>
+        <TextBlock x:Name="DescriptionBox" HorizontalAlignment="Left" Margin="124,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.971,0.815" FontSize="14" Height="138" Width="252"><Run Text="---Описание---"/></TextBlock>
         <TextBlock x:Name="CirculationBox" HorizontalAlignment="Left" Margin="124,135,0,0" TextWrapping="Wrap" Text="---Тираж---" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="PublisherBox" HorizontalAlignment="Left" Margin="124,89,0,0" TextWrapping="Wrap" Text="---Издатель---" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="AuthorBox" HorizontalAlignment="Left" Margin="124,66,0,0" TextWrapping="Wrap" Text="---Автор---" VerticalAlignment="Top" FontSize="14"/>
@@ -28,6 +28,6 @@
         <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="60,337,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Delete_Click"/>
         <TextBlock x:Name="id" HorizontalAlignment="Left" Margin="344,7,0,0" TextWrapping="Wrap" Text="id:" VerticalAlignment="Top" Width="59"/>
         <TextBlock x:Name="Availability" HorizontalAlignment="Left" Margin="264,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Foreground="#FF009E24"><Run Text="TextBlo"/><Run Text="ck"/></TextBlock>
-        <TextBlock x:Name="NoAvailability" HorizontalAlignment="Left" Margin="264,7,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFE80A0A"/>
+        <TextBlock x:Name="NoAvailability" HorizontalAlignment="Left" Margin="260,7,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFE80A0A"/>
     </Grid>
 </Window>

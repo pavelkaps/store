@@ -12,9 +12,8 @@ namespace LibraryBook
         void Insert(T a);
         void Delete(int id);
         T Find(int id);
-        //void Update(T a);
-        //T Load();
-        //void InsertWithId(T a, int id);
+        void Update();
+        //IDbSet<T> Load();
        
     }
 }

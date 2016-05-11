@@ -27,13 +27,15 @@ namespace LibraryBook
         public BookGenreRepository DBGenre;
         public MagazineTypeRepository DBType;
         public MagazineRepository DBMagazine;
-
+        public LibraryContext dbContext;
+        public List<BookGenre> AllList;
         public MainWindow()
         {
-            DBBook = new BookRepository();
-            DBGenre = new BookGenreRepository();
-            DBType = new MagazineTypeRepository();
-            DBMagazine = new MagazineRepository();
+            dbContext = new LibraryContext();
+            DBBook = new BookRepository(dbContext);
+            DBGenre = new BookGenreRepository(dbContext);
+            DBType = new MagazineTypeRepository(dbContext);
+            DBMagazine = new MagazineRepository(dbContext);
 
             InitializeComponent();
 
@@ -45,14 +47,8 @@ namespace LibraryBook
         }
         private void LoadCombobox()
         {
-            TypeBox.ItemsSource = GetTypeDB().Load().Local.ToList();
-            TypeBox.SelectedValuePath = "Id";
-            TypeBox.DisplayMemberPath = "type";
-            
-            
-            GenreBox.ItemsSource = GetGenreDB().Load().Local.ToList();
-            GenreBox.SelectedValuePath = "Id";
-            GenreBox.DisplayMemberPath = "Genre";
+            LoadBookCombobox();
+            LoadMagazineCombobox();
             
             TypeBox.Visibility = Visibility.Collapsed;
         }
@@ -64,7 +60,41 @@ namespace LibraryBook
             if (form.ShowDialog() == true)
             {
                 UpdateDataGrid();
+                LoadMagazineCombobox();
+                LoadBookCombobox();
             }
+        }
+
+        public void LoadBookCombobox(){
+
+            BookGenre AllMenu = new BookGenre { Genre = "Все", Id = 99 };
+
+            AllList = new List<BookGenre>();
+            AllList.Add(AllMenu);
+            foreach (BookGenre item in GetGenreDB().Load().Local.ToList().ToArray())
+            {
+                AllList.Add(item);
+            }
+            GenreBox.ItemsSource = AllList;
+            
+            GenreBox.SelectedValuePath = "Id";
+            GenreBox.DisplayMemberPath = "Genre";
+           
+        }
+
+        public void LoadMagazineCombobox()
+        {
+            MagazineType AllType = new MagazineType { type = "Все", Id = 0 };
+
+            List<MagazineType> AllList = new List<MagazineType>();
+            AllList.Add(AllType);
+            foreach (MagazineType item in GetTypeDB().Load().Local.ToList().ToArray())
+            {
+                AllList.Add(item);
+            }
+            TypeBox.ItemsSource = AllList;
+            TypeBox.SelectedValuePath = "Id";
+            TypeBox.DisplayMemberPath = "type";
         }
 
         private void Window_Load(object sender, RoutedEventArgs e)
@@ -74,12 +104,18 @@ namespace LibraryBook
 
         private void grid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Book path = BookGrid.SelectedItem as Book;
-            AboutBook frm = new AboutBook(path, this);
-            frm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            frm.ShowDialog();
-            
-            UpdateDataGrid();
+            try
+            {
+                Book path = BookGrid.SelectedItem as Book;
+                AboutBook frm = new AboutBook(path, this);
+                frm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+                frm.ShowDialog();
+                UpdateDataGrid();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите книгу", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void LoadGrid_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -90,6 +126,7 @@ namespace LibraryBook
 
         private void BookLoad()
         {
+
             BookGrid.ItemsSource = DBBook.Load().Local.ToBindingList();
             TypeLabel.Text = "Выберите жанр:";
             
@@ -98,6 +135,7 @@ namespace LibraryBook
 
             GenreBox.Visibility = Visibility.Visible;
             TypeBox.Visibility = Visibility.Collapsed;
+            LoadBookCombobox();
         }
 
         private void MagazineLoad()
@@ -110,6 +148,7 @@ namespace LibraryBook
 
             TypeBox.Visibility = Visibility.Visible;
             GenreBox.Visibility = Visibility.Collapsed;
+            LoadMagazineCombobox();
         }
 
         private void EntityBox_Selected(object sender, SelectionChangedEventArgs e)
@@ -117,22 +156,29 @@ namespace LibraryBook
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             if (selectedItem.Content.ToString() == "Книги") { MagazineGrid.Visibility = Visibility.Collapsed; BookGrid.Visibility = Visibility.Visible; BookLoad(); }
-            if (selectedItem.Content.ToString() == "Журналы") { BookGrid.Visibility = Visibility.Collapsed; MagazineGrid.Visibility = Visibility.Visible; MagazineLoad(); } //MagazineLoad();BookLoad();
-
+            if (selectedItem.Content.ToString() == "Журналы") { BookGrid.Visibility = Visibility.Collapsed; MagazineGrid.Visibility = Visibility.Visible; MagazineLoad(); } 
+            
         }
 
         public void DefaultDataGrid()
         {
             ComboBoxItem selectedItem = (ComboBoxItem)EntityBox.SelectedItem;
             if (selectedItem.Content.ToString() == "Книги") { MagazineGrid.Visibility = Visibility.Collapsed; BookGrid.Visibility = Visibility.Visible; BookLoad(); }
-            if (selectedItem.Content.ToString() == "Журналы") { BookGrid.Visibility = Visibility.Collapsed; MagazineGrid.Visibility = Visibility.Visible; MagazineLoad(); } //MagazineLoad();BookLoad();
+            if (selectedItem.Content.ToString() == "Журналы") { BookGrid.Visibility = Visibility.Collapsed; MagazineGrid.Visibility = Visibility.Visible; MagazineLoad(); } 
         }
         public void UpdateDataGrid()
         {
-            BookGrid.ItemsSource = null;
-            BookLoad();
-            MagazineGrid.ItemsSource = null;
-            MagazineLoad();
+            ComboBoxItem selectedItem = (ComboBoxItem)EntityBox.SelectedItem;
+            if (selectedItem.Content.ToString() == "Книги")
+            {
+                BookGrid.ItemsSource = null;
+                BookLoad();
+            }
+            else
+            {
+                MagazineGrid.ItemsSource = null;
+                MagazineLoad();
+            }
         }
 
         public BookRepository GetBookDb()
@@ -164,11 +210,18 @@ namespace LibraryBook
 
         private void MagazineGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Magazine path = MagazineGrid.SelectedItem as Magazine;
-            AboutMagazine frm = new AboutMagazine(this, path);
-            frm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            frm.ShowDialog();
-            UpdateDataGrid();
+            try
+            {
+                Magazine path = MagazineGrid.SelectedItem as Magazine;
+                AboutMagazine frm = new AboutMagazine(this, path);
+                frm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+                frm.ShowDialog();
+                UpdateDataGrid();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Выберите журнал", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Seach_Click(object sender, RoutedEventArgs e)
@@ -189,14 +242,28 @@ namespace LibraryBook
 
         private void TypeBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BookGenre BookGenre = (BookGenre)GenreBox.SelectedItem;
-             BookGrid.ItemsSource = BookGenre.Books;
+            BookGenre GenreBook = (BookGenre)GenreBox.SelectedItem;
+           
+             BookGrid.ItemsSource = GenreBook.Books;
         }
 
         private void TypeSelect(object sender, SelectionChangedEventArgs e)
         {
             MagazineType TypeMagazine = (MagazineType)TypeBox.SelectedItem;
             MagazineGrid.ItemsSource = TypeMagazine.journals;
+        }
+
+        public void SetSourceForBookDataGrid(List<Book> a)
+        {
+            BookGrid.ItemsSource = null;
+            //BookLoad();
+            BookGrid.ItemsSource = a;
+        }
+        public void SetSourceForMagazineDataGrid(List<Magazine> a)
+        {
+            MagazineGrid.ItemsSource = null;
+            //BookLoad();
+            MagazineGrid.ItemsSource = a;
         }
 
     }

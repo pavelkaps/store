@@ -30,17 +30,19 @@ namespace LibraryBook
         }
         public void SetMagazine()
         {
-            TitleBox.Text = "\"" + magazine.Title + "\"";
-            PublisherBox.Text = magazine.Publisher;
-            EditionBox.Text = magazine.Edition.ToString();
-            DescriptionBox.Text = magazine.Description;
-            CirculationBox.Text = magazine.Сirculation.ToString();
-            GenreBox.Text = magazine.MagazineType.type;
-            Rate.Text = magazine.Rating.ToString();
-            id.Text = "id: " + magazine.Id;
-            if (magazine.Availability == true) { NoAvailability.Text = ""; Availability.Text = "В наличии"; }
-            if (magazine.Availability == false) { Availability.Text = ""; NoAvailability.Text = "Нет в наличии"; }
-
+            
+                TitleBox.Text = "\"" + magazine.Title + "\"";
+                PublisherBox.Text = magazine.Publisher;
+                EditionBox.Text = magazine.Edition.ToString();
+                DescriptionBox.Text = magazine.Description;
+                CirculationBox.Text = magazine.Сirculation.ToString();
+                GenreBox.Text = magazine.MagazineType.type;
+                Rate.Text = magazine.Rating.ToString();
+                id.Text = "id: " + magazine.Id;
+                if (magazine.Availability == true) { NoAvailability.Text = ""; Availability.Text = "В наличии"; }
+                if (magazine.Availability == false) { Availability.Text = ""; NoAvailability.Text = "Нет в наличии"; }
+            
+            
         }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {

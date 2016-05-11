@@ -35,3 +35,5 @@ C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\EditMagazine.g.cs
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\SeachForm.baml
 C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\SeachForm.g.cs
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\EditTypeOrGenre.baml
+C:\Users\Паша\documents\visual studio 2012\Projects\LibraryBook\LibraryBook\obj\Debug\EditTypeOrGenre.g.cs

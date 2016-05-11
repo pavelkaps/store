@@ -22,6 +22,7 @@ namespace LibraryBook
         AddBook AddBookForm;
         AddMagazine AddMagazineForm;
         AddType AddTypeForm;
+        EditTypeOrGenre EditTypeForm;
         MainWindow main;
         
         public BookOrMagazine(MainWindow _main)
@@ -39,8 +40,12 @@ namespace LibraryBook
                 this.DialogResult = true;
                 this.Close();
             }
+            else
+            {
+                this.DialogResult = false;
+                Close();
+            }
             
-            Close();
         }
 
         private void AddMagazine(object sender, RoutedEventArgs e)
@@ -52,9 +57,13 @@ namespace LibraryBook
                 this.DialogResult = true;
                 this.Close();
             }
+            else
+            {
+                this.DialogResult = false;
+                Close();
+            }
 
             
-            Close();
         }
 
         private void AddType(object sender, RoutedEventArgs e)
@@ -66,7 +75,19 @@ namespace LibraryBook
                 this.DialogResult = true;
                 this.Close();
             }
-            this.DialogResult = false;
+            else
+            {
+                this.DialogResult = false;
+                Close();
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            EditTypeForm = new EditTypeOrGenre(main);
+            EditTypeForm.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            EditTypeForm.ShowDialog();
+            main.UpdateDataGrid();
             Close();
         }
 

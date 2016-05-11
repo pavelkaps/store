@@ -10,16 +10,21 @@ namespace LibraryBook
 {
     public class MagazineTypeRepository : IEntityRepository<MagazineType>
     {
+        LibraryContext dbContext;
+        public MagazineTypeRepository(LibraryContext a)
+        {
+            dbContext = a;
+        }
         public void Insert(MagazineType a)
         {
-            var dbContext = new MagazineContext();
+            
             dbContext.dbType.Add(a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var dbContext = new MagazineContext();
+            
             MagazineType type = dbContext.dbType.Find(id);
             dbContext.dbType.Remove(type);
             dbContext.SaveChanges();
@@ -27,24 +32,19 @@ namespace LibraryBook
 
         public IDbSet<MagazineType> Load()
         {
-            var dbContext = new MagazineContext();
             dbContext.dbType.Load();
             return dbContext.dbType;
         }
 
         public MagazineType Find(int id)
         {
-            var dbContext = new MagazineContext();
             MagazineType type = dbContext.dbType.Find(id);
             return type;
         }
 
-        public void Update(MagazineType a)
+        public void Update()
         {
-            var db = new MagazineContext();
-            db.dbType.Load();
-            db.Entry((MagazineType)a).State = EntityState.Modified;
-            db.SaveChanges();
+            dbContext.SaveChanges();
         }
 
     }

@@ -27,6 +27,7 @@ namespace LibraryBook
             Main = _main;
             InitializeComponent();
             MagazineLoad();
+            DescriptionBox.MaxLength = 190;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -50,17 +51,19 @@ namespace LibraryBook
             
             
             newMagazine.MagazineType = (MagazineType)TypeBox.SelectedItem;
-            Main.GetMagazineDB().InsertWithId(newMagazine, newMagazine.MagazineType.Id);
+            Main.GetMagazineDB().Insert(newMagazine);
+
             this.DialogResult = true;
             Close();
         }
         private void MagazineLoad()
         {
-
+            TypeBox.ItemsSource = null;
             TypeBox.ItemsSource = Main.GetTypeDB().Load().Local.ToList();
-            TypeBox.SelectedIndex = 0;
+            
             TypeBox.SelectedValuePath = "Id";
             TypeBox.DisplayMemberPath = "type";
+            TypeBox.SelectedIndex = 0;
 
         }
 

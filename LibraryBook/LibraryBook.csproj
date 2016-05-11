@@ -78,7 +78,6 @@
     <Compile Include="AddType.xaml.cs">
       <DependentUpon>AddType.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookContext.cs" />
     <Compile Include="BookGenre.cs" />
     <Compile Include="BookGenreRepository.cs" />
     <Compile Include="BookGenres.cs">
@@ -97,8 +96,11 @@
     <Compile Include="EditMagazine.xaml.cs">
       <DependentUpon>EditMagazine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditTypeOrGenre.xaml.cs">
+      <DependentUpon>EditTypeOrGenre.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IEntityRepository.cs" />
-    <Compile Include="MagazineContext.cs" />
+    <Compile Include="LibraryContext.cs" />
     <Compile Include="MagazineRepository.cs" />
     <Compile Include="MagazineType.cs" />
     <Compile Include="MagazineTypeRepository.cs" />
@@ -150,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditMagazine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTypeOrGenre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

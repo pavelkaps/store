@@ -28,6 +28,7 @@ namespace LibraryBook
             
             InitializeComponent();
             BookLoad();
+            DescriptionBox.MaxLength = 190;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -45,7 +46,8 @@ namespace LibraryBook
             newBook.SetAvailability();
 
             newBook.BookGenre = (BookGenre)GenreBox.SelectedItem;
-            main.GetBookDb().InsertWithId(newBook,newBook.BookGenre.Id);
+            
+            main.GetBookDb().Insert(newBook);
           
             this.DialogResult = true;
             Close();
@@ -53,11 +55,12 @@ namespace LibraryBook
 
         private void BookLoad()
         {
-
+            GenreBox.ItemsSource = null;
             GenreBox.ItemsSource = main.GetGenreDB().Load().Local.ToList();
-            GenreBox.SelectedIndex = 0;
+            
             GenreBox.SelectedValuePath = "Id";
             GenreBox.DisplayMemberPath = "Genre";
+            GenreBox.SelectedIndex = 0;
 
         }
 

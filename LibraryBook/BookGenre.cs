@@ -17,6 +17,11 @@ namespace LibraryBook
         {
             return Genre;
         }
+
+        public override string ToString()
+        {
+            return Genre;
+        }
     }
 }
 

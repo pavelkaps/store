@@ -27,6 +27,7 @@ namespace LibraryBook
             magazine = _magazine;
             InitializeComponent();
             SetMagazineForm();
+            DescriptionBox.MaxLength = 190;
         }
 
         private void Up_Click(object sender, RoutedEventArgs e)
@@ -85,9 +86,9 @@ namespace LibraryBook
 
             magazine.Rating = int.Parse(Rate.Text);
             magazine.SetAvailability();
-            MagazineType type = (MagazineType)TypeBox.SelectedItem;
-            int id = type.Id;
-            main.GetMagazineDB().Update(magazine, id);
+            magazine.MagazineType = (MagazineType)TypeBox.SelectedItem;
+            
+            main.GetMagazineDB().Update();
 
             this.DialogResult = true;
             Close();

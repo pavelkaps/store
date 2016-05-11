@@ -1,11 +1,15 @@
 ﻿<Window x:Class="LibraryBook.BookOrMagazine"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BookOrMagazine" Height="221.011" Width="300">
+        Title="Выберите действие" Height="275.011" Width="300">
     <Grid Margin="0,0,2,16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Button Content="Добавить книгу" HorizontalAlignment="Left" Margin="71,21,0,0" VerticalAlignment="Top" Width="151" Height="37" Click="AddBook"/>
         <Button Content="Добавить журнал" HorizontalAlignment="Left" Margin="71,72,0,0" VerticalAlignment="Top" Width="151" Height="37" Click="AddMagazine"/>
         <Button Content="Добавить тип/жанр" HorizontalAlignment="Left" Margin="71,124,0,0" VerticalAlignment="Top" Width="151" Height="37" Click="AddType"/>
+        <Button Content="Редактировать жанр" HorizontalAlignment="Left" Margin="71,176,0,0" VerticalAlignment="Top" Width="151" RenderTransformOrigin="0.52,-2.45" Height="37" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

@@ -17,7 +17,10 @@ namespace LibraryBook
         {
             journals = new List<Magazine>();
         }
-
+        public override string ToString()
+        {
+            return type;
+        }
         //public MagazineType()
         //{
         //    type = "N/A";

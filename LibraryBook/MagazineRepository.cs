@@ -9,10 +9,10 @@ namespace LibraryBook
 {
     public class MagazineRepository : IEntityRepository<Magazine>
     {
-        MagazineContext dbContext;
-        public MagazineRepository()
+        LibraryContext dbContext;
+        public MagazineRepository(LibraryContext a)
         {
-            dbContext = new MagazineContext();
+            dbContext = a;
         }
         public void Insert(Magazine a)
         {
@@ -39,20 +39,11 @@ namespace LibraryBook
             Magazine m = dbContext.dbJournals.Find(id);
             return m;
         }
-        public void Update(Magazine a, int id)
+        public void Update()
         {
-            MagazineType Genre = dbContext.dbType.Find(id);
-            a.MagazineType = Genre;
-            dbContext.Entry(a).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
         
-        public void InsertWithId(Magazine a, int id)
-        {
-            MagazineType Type = dbContext.dbType.Find(id);
-            a.MagazineType = Type;
-            dbContext.dbJournals.Add(a);
-            dbContext.SaveChanges();
-        }
+       
     }
 }

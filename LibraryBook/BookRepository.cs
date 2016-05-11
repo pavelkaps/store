@@ -9,23 +9,21 @@ namespace LibraryBook
 {
     public class BookRepository : IEntityRepository<Book>
     {
-       BookContext dbContext;
+       LibraryContext dbContext;
 
-       public BookRepository()
+       public BookRepository(LibraryContext a)
        {
-           dbContext = new BookContext();
+           dbContext = a;
 
        }
         public void Insert(Book a)
         {
-            //var dbContext = new BookContext();
             dbContext.dbBooks.Add(a);
             dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            //var dbContext = new BookContext();
             Book book = dbContext.dbBooks.Find(id);
             dbContext.dbBooks.Remove(book);
             dbContext.SaveChanges();
@@ -33,7 +31,6 @@ namespace LibraryBook
 
         public IDbSet<Book> Load()
         {
-            //var dbContext = new BookContext();
             dbContext.dbBooks.Load();
             dbContext.dbGenre.Load();
             return dbContext.dbBooks;
@@ -41,26 +38,13 @@ namespace LibraryBook
 
         public Book Find(int id)
         {
-            //var dbContext = new BookContext();
             Book book = dbContext.dbBooks.Find(id);
             return book;
         }
 
-        public void Update(Book a,int id){
-            BookGenre Genre = dbContext.dbGenre.Find(id);
-            a.BookGenre = Genre;
-            
-            dbContext.Entry(a).State = EntityState.Modified;
-            
+        public void Update(){
             dbContext.SaveChanges();
         }
 
-        public void InsertWithId(Book a, int id)
-        {
-            BookGenre Genre = dbContext.dbGenre.Find(id);
-            a.BookGenre = Genre;
-            dbContext.dbBooks.Add(a);
-            dbContext.SaveChanges();
-        }
     }
 }

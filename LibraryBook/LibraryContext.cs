@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-
 namespace LibraryBook
 {
-    class MagazineContext: DbContext
+    public class LibraryContext : DbContext
     {
-        public MagazineContext(): base("DbConnection")
+        public LibraryContext(): base("DbConnection")
         { }
           
         public DbSet<Magazine> dbJournals { get; set; }
         public DbSet<MagazineType> dbType { get; set; }
+        public DbSet<Book> dbBooks { get; set; }
+        public DbSet<BookGenre> dbGenre { get; set; }
     }
 }
