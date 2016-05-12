@@ -13,7 +13,6 @@ namespace LibraryBook
         void Delete(int id);
         T Find(int id);
         void Update();
-        //IDbSet<T> Load();
-       
+        List<T> Load();  
     }
 }

@@ -37,7 +37,7 @@ namespace LibraryBook
             AuthorBox.Text = book.Author;
             PublisherBox.Text = book.Publisher;
             YearBox.Text = book.Year.ToString();
-            GenreBox.Text = book.BookGenre.Genre;
+            GenreBox.Text = book.BookGenre.Title;
             DescriptionBox.Text = book.Description;
             CirculationBox.Text = book.Сirculation.ToString();
             Rate.Text = book.Rating.ToString();

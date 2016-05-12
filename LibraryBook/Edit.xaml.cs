@@ -48,7 +48,7 @@ namespace LibraryBook
         private void BookLoad()
         {
 
-            GenreBox.ItemsSource = main.GetGenreDB().Load().Local.ToList();
+            GenreBox.ItemsSource = main.GetGenreDB().Load();
             
             GenreBox.SelectedValuePath = "Id";
             GenreBox.DisplayMemberPath = "Genre";
@@ -88,7 +88,7 @@ namespace LibraryBook
             book.SetAvailability();
             book.BookGenre = (BookGenre)GenreBox.SelectedItem;
             
-            main.DBBook.Update();
+            main.BookRepository.Update();
 
             this.DialogResult = true;
             Close();

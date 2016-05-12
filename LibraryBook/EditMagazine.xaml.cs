@@ -63,7 +63,7 @@ namespace LibraryBook
         private void MagazineLoad()
         {
 
-            TypeBox.ItemsSource = main.GetTypeDB().Load().Local.ToList();
+            TypeBox.ItemsSource = main.GetTypeDB().Load();
 
             TypeBox.SelectedValuePath = "Id";
             TypeBox.DisplayMemberPath = "type";

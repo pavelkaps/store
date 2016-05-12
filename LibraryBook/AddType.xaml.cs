@@ -33,12 +33,12 @@ namespace LibraryBook
             {
                 case 1:
                     BookGenre newGenre = new BookGenre();
-                    newGenre.Genre = TextBox.Text;
+                    newGenre.Title = TextBox.Text;
                     Main.GetGenreDB().Insert(newGenre);
                     break;
                 case 2:
                     MagazineType newType = new MagazineType();
-                    newType.type = TextBox.Text;
+                    newType.Title = TextBox.Text;
                     Main.GetTypeDB().Insert(newType);
                     break;
             }

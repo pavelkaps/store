@@ -36,7 +36,7 @@ namespace LibraryBook
                 EditionBox.Text = magazine.Edition.ToString();
                 DescriptionBox.Text = magazine.Description;
                 CirculationBox.Text = magazine.Сirculation.ToString();
-                GenreBox.Text = magazine.MagazineType.type;
+                GenreBox.Text = magazine.MagazineType.Title;
                 Rate.Text = magazine.Rating.ToString();
                 id.Text = "id: " + magazine.Id;
                 if (magazine.Availability == true) { NoAvailability.Text = ""; Availability.Text = "В наличии"; }

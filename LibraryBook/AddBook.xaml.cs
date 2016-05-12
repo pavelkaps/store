@@ -56,10 +56,10 @@ namespace LibraryBook
         private void BookLoad()
         {
             GenreBox.ItemsSource = null;
-            GenreBox.ItemsSource = main.GetGenreDB().Load().Local.ToList();
+            GenreBox.ItemsSource = main.GetGenreDB().Load();
             
             GenreBox.SelectedValuePath = "Id";
-            GenreBox.DisplayMemberPath = "Genre";
+            GenreBox.DisplayMemberPath = "Title";
             GenreBox.SelectedIndex = 0;
 
         }

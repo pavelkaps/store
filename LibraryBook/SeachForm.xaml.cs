@@ -55,21 +55,21 @@ namespace LibraryBook
                 switch(searchId(1)){
 
                     case 1: 
-                SearchBooks = main.GetBookDb().Load().Local.ToList();
+                SearchBooks = main.GetBookDb().Load();
                 foreach (Book book in SearchBooks.ToArray())
                 {
                 if(book.Id!=int.Parse(SearchBox.Text)) SearchBooks.Remove(book);
                 }
                 break;
 
-                case 2: SearchBooks = main.GetBookDb().Load().Local.ToList();
+                case 2: SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                 if(book.Title!=SearchBox.Text)SearchBooks.Remove(book);
                 }
                 break;
 
-                case 3: SearchBooks = main.GetBookDb().Load().Local.ToList();
+                case 3: SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                 if(book.Author!=SearchBox.Text)SearchBooks.Remove(book);
@@ -77,7 +77,7 @@ namespace LibraryBook
                 }
                 break;
 
-                case 4: SearchBooks = main.GetBookDb().Load().Local.ToList();
+                case 4: SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                 if(book.Year!=int.Parse(SearchBox.Text))SearchBooks.Remove(book);
@@ -85,7 +85,7 @@ namespace LibraryBook
                 break;
 
                 case 5:
-                SearchBooks = main.GetBookDb().Load().Local.ToList();
+                SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                     if (book.Сirculation != int.Parse(SearchBox.Text)) SearchBooks.Remove(book);
@@ -93,7 +93,7 @@ namespace LibraryBook
                 break;
 
                 case 6:
-                SearchBooks = main.GetBookDb().Load().Local.ToList();
+                SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                 if(book.Rating!=int.Parse(Rate.Text))SearchBooks.Remove(book);
@@ -101,7 +101,7 @@ namespace LibraryBook
                 break;
                 
                 case 7:
-                SearchBooks = main.GetBookDb().Load().Local.ToList();
+                SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                 if(book.Availability!= AvailabilityCheck.IsChecked)SearchBooks.Remove(book);
@@ -109,7 +109,7 @@ namespace LibraryBook
                 break;
 
                 case 8:
-                SearchBooks = main.GetBookDb().Load().Local.ToList();
+                SearchBooks = main.GetBookDb().Load();
                 foreach (var book in SearchBooks.ToArray())
                 {
                     if (book.Publisher != SearchBox.Text) SearchBooks.Remove(book);
@@ -126,21 +126,21 @@ namespace LibraryBook
                 {
 
                     case 1:
-                        SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                        SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Id != int.Parse(SearchBox.Text)) SearchJournals.Remove(magazine);
                         }
                         break;
 
-                    case 2: SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                    case 2: SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Title != SearchBox.Text) SearchJournals.Remove(magazine);
                         }
                         break;
 
-                    case 3: SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                    case 3: SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Edition != int.Parse(SearchBox.Text)) SearchJournals.Remove(magazine);
@@ -150,7 +150,7 @@ namespace LibraryBook
      
 
                     case 5:
-                        SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                        SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Сirculation != int.Parse(SearchBox.Text)) SearchJournals.Remove(magazine);
@@ -158,7 +158,7 @@ namespace LibraryBook
                         break;
 
                     case 6:
-                        SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                        SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Rating != int.Parse(Rate.Text)) SearchJournals.Remove(magazine);
@@ -166,7 +166,7 @@ namespace LibraryBook
                         break;
 
                     case 7:
-                        SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                        SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Availability != AvailabilityCheck.IsChecked) SearchJournals.Remove(magazine);
@@ -174,7 +174,7 @@ namespace LibraryBook
                         break;
 
                     case 8:
-                        SearchJournals = main.GetMagazineDB().Load().Local.ToList();
+                        SearchJournals = main.GetMagazineDB().Load();
                         foreach (var magazine in SearchJournals.ToArray())
                         {
                             if (magazine.Publisher != SearchBox.Text) SearchJournals.Remove(magazine);

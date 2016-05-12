@@ -6,22 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibraryBook
 {
-    public class BookGenre:Type
+    public class BookGenre:Dictionary
     {
-
-        public string Genre { get; set; }
-         
         public virtual List<Book> Books { get; set; }
         
-        public override string GetTYPE()
-        {
-            return Genre;
-        }
-
-        public override string ToString()
-        {
-            return Genre;
-        }
     }
 }
 

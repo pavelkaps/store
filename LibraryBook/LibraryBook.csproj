@@ -78,15 +78,14 @@
     <Compile Include="AddType.xaml.cs">
       <DependentUpon>AddType.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookGenre.cs" />
-    <Compile Include="BookGenreRepository.cs" />
+    <Compile Include="BLL\EntityRepository.cs" />
+    <Compile Include="DAL\BookGenre.cs" />
     <Compile Include="BookGenres.cs">
       <DependentUpon>ModelBook.tt</DependentUpon>
     </Compile>
     <Compile Include="BookOrMagazine.xaml.cs">
       <DependentUpon>BookOrMagazine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookRepository.cs" />
     <Compile Include="Books.cs">
       <DependentUpon>ModelBook.tt</DependentUpon>
     </Compile>
@@ -99,11 +98,9 @@
     <Compile Include="EditTypeOrGenre.xaml.cs">
       <DependentUpon>EditTypeOrGenre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IEntityRepository.cs" />
-    <Compile Include="LibraryContext.cs" />
-    <Compile Include="MagazineRepository.cs" />
-    <Compile Include="MagazineType.cs" />
-    <Compile Include="MagazineTypeRepository.cs" />
+    <Compile Include="BLL\IEntityRepository.cs" />
+    <Compile Include="DAL\LibraryContext.cs" />
+    <Compile Include="DAL\MagazineType.cs" />
     <Compile Include="ModelBook.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,7 +119,7 @@
     <Compile Include="SeachForm.xaml.cs">
       <DependentUpon>SeachForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Type.cs" />
+    <Compile Include="DAL\Dictionary.cs" />
     <Page Include="AboutBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,9 +164,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Book.cs" />
-    <Compile Include="Entity.cs" />
-    <Compile Include="Magazine.cs" />
+    <Compile Include="DAL\Book.cs" />
+    <Compile Include="DAL\Entity.cs" />
+    <Compile Include="DAL\Magazine.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

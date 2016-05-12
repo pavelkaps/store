@@ -31,8 +31,8 @@ namespace LibraryBook
         {
             ComboBoxItem selectedItem = (ComboBoxItem)TypeBox.SelectedItem;
 
-            if (selectedItem.Content.ToString() == "Жанр") { BookGenre genre = (BookGenre)ListBox.SelectedItem; if (TextBox.Text != "") { genre.Genre = TextBox.Text; } else { genre.Genre = "N/A"; }; main.GetGenreDB().Update(); MessageBox.Show("Жанр успешно изменен", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information); }
-            if (selectedItem.Content.ToString() == "Тип") { MagazineType type = (MagazineType)ListBox.SelectedItem; if (TextBox.Text != "") { type.type = TextBox.Text; } else { type.type = "N/A"; }; main.GetTypeDB().Update(); MessageBox.Show("Тип успешно изменен", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information); }
+            if (selectedItem.Content.ToString() == "Жанр") { BookGenre genre = (BookGenre)ListBox.SelectedItem; if (TextBox.Text != "") { genre.Title = TextBox.Text; } else { genre.Title = "N/A"; }; main.GetGenreDB().Update(); MessageBox.Show("Жанр успешно изменен", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information); }
+            if (selectedItem.Content.ToString() == "Тип") { MagazineType type = (MagazineType)ListBox.SelectedItem; if (TextBox.Text != "") { type.Title = TextBox.Text; } else { type.Title = "N/A"; }; main.GetTypeDB().Update(); MessageBox.Show("Тип успешно изменен", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information); }
             Close();
         }
 
